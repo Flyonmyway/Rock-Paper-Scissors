@@ -1,40 +1,51 @@
-let answer = prompt("What's your choice?");
+let playerScore = 0;
+let computerScore = 0;
 
 function getComputerChoice () {
-    const myArray=["rock" , "paper", "scissors"]
-    
-    const random = Math.floor(Math.random() * myArray.length);
+    let myArray=["rock" , "paper", "scissors"]
+    let random = Math.floor(Math.random() * myArray.length);
     return myArray[random]
 }
 
-function playRound(playerSelection, computerSelection) {
-    if (playerSelection == "rock" && computerSelection == "paper") {
-        return(computerSelection + " You Lose! Paper beats Rock");
-    } else if (playerSelection == 'paper' && computerSelection == "scissors") {
-        return(computerSelection + " You Lose! Scissors beats Paper");
-    } else if (playerSelection == "scissors" && computerSelection == "rock") {
-        return(computerSelection + " You Lose! Rock beats Scissors");
-    }  else if (playerSelection == "rock" && computerSelection == "scissors") {
-        return(computerSelection + " You Win! Rock beats Scissors");
-    }  else if (playerSelection == "paper" && computerSelection == "rock") {     
-        return(computerSelection + " You Win! Paper beats Rock");
-    } else if (playerSelection == "scissors" && computerSelection == "paper") {
-        return(computerSelection + " You Win! Scissors beats Paper");
-    } else if (playerSelection === computerSelection) {
-        return(computerSelection + " It's tie");
-    } else {
-        return ("Enter again");
-    }
-}
-
-const playerSelection = answer.toLowerCase();
-const computerSelection = getComputerChoice();
-
-
 function game() {
-    for (let i = 0; i < 5; i++) {
-        var result = playRound(playerSelection, computerSelection);
-        console.log(result)
+    while (playerScore < 5 && computerScore < 5) {
+        const playerSelection = prompt("What's your choice?").toLowerCase();
+        const computerSelection = getComputerChoice();
+        alert(playRound(playerSelection, computerSelection));
     }
 }
-game(playRound(playerSelection, computerSelection))
+
+function playRound(playerSelection, computerSelection) {
+     if (playerSelection === "rock" && computerSelection === "scissors") {
+        playerScore += 1;
+        return("You Win! Rock beats Scissors!")
+        
+    } else if (playerSelection === 'paper' && computerSelection === "rock") {
+        playerScore += 1;
+        return("You Wn! Paper beats Rock!")
+
+    } else if (playerSelection === "scissors" && computerSelection === "paper") {
+        playerScore += 1;
+        return("You Win! Scissors beats Paper!")
+    
+    }  else if (playerSelection === computerSelection) {
+        return("It's tie");
+
+    }  else {
+        computerScore += 1;
+        return (`You Loss! ${computerSelection} beats ${playerSelection}`)
+    }
+}
+
+function winGame() {
+    if (playerScore == 5) {
+        return "You win!"
+    } else if (computerScore == 5) {
+        return "You lose!"
+    }
+}
+
+game();
+
+console.log(playerScore);
+console.log(computerScore);
