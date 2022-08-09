@@ -4,9 +4,33 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>ROCK PAPER SCISSORS</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <script src="script.js"></script>
+    <header> 
+        <h1 class="title">ROCK PAPER SCISSORS!</h1>
+    </header> 
+
+    <div class="score-board">
+        <div id="user-label" class="badge">user</div>
+        <div id="computer-label" class="badge">comp</div>
+        <span id="user-score">0</span>:<span id="computer-score">0</span>
+    </div>
+
+    <div class ="result">
+        <p>Paper covers rock. You win!</p>
+    </div>
+
+    <div class="choices">
+        <div class="choice" id="r">👊</div>
+        <div class="choice" id="p">✋</div>
+        <div class="choice" id="s">✌️</div>
+    <div class="resultAnnounce">
+        <p>You win this game!👏</p>
+    </div>
+    </div>
+    <p id="action-message">Make your move.</p>
+    <script src="script.js" defer></script>
 </body>
 </html>

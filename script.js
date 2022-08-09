@@ -1,51 +1,89 @@
-let playerScore = 0;
+let userScore = 0;
 let computerScore = 0;
+const userScore_span = document.getElementById('user-score');
+const computerScore_span = document.getElementById('computer-score');
+const scoreBoard_div = document.querySelector('.score-board');
+const result_p = document.querySelector(".result > p");
+const rock_div = document.getElementById('r');
+const paper_div = document.getElementById('p');
+const scissors_div = document.getElementById('s');
 
-function getComputerChoice () {
-    let myArray=["rock" , "paper", "scissors"]
-    let random = Math.floor(Math.random() * myArray.length);
-    return myArray[random]
+
+function getComputerChoice() {
+    const choices = ['r', 'p', 's'];
+    const randomNumber = Math.floor(Math.random() * 3);
+    return choices[randomNumber];
 }
 
-function game() {
-    while (playerScore < 5 && computerScore < 5) {
-        const playerSelection = prompt("What's your choice?").toLowerCase();
-        const computerSelection = getComputerChoice();
-        alert(playRound(playerSelection, computerSelection));
+function convertToWord(letter) {
+    if (letter === "r") return "Rock";
+    if (letter === "p") return "Paper";
+    return "Scissors";
+}
+
+function win(userChoice, computerChoice) {
+    const userChoice_div = document.getElementById(userChoice);
+    userScore++;
+    userScore_span.innerHTML = userScore;
+    computerScore_span.innerHTML = computerScore;
+    result_p.innerHTML = `${convertToWord(userChoice)} beats ${convertToWord(computerChoice)}. You win!`
+    userChoice_div.classList.add('green-glow');
+    setTimeout(function() { userChoice_div.classList.remove('green-glow')}, 300); 
+    }
+
+function loss(userChoice, computerChoice) {
+    const userChoice_div = document.getElementById(userChoice);
+    computerScore++;
+    userScore_span.innerHTML = userScore;
+    computerScore_span.innerHTML = computerScore;
+    result_p.innerHTML = `${convertToWord(userChoice)} loses to ${convertToWord(computerChoice)}. You lost...`
+    userChoice_div.classList.add('red-glow');
+    setTimeout(function() { userChoice_div.classList.remove('red-glow')}, 300);
+}
+
+
+function draw(userChoice, computerChoice) {
+    result_p.innerHTML = `${convertToWord(userChoice)} equals ${convertToWord(computerChoice)}. It's a draw!`
+    const userChoice_div = document.getElementById(userChoice);
+    userChoice_div.classList.add('gray-glow');
+    setTimeout(function() { userChoice_div.classList.remove('gray-glow')}, 300);
+}
+
+
+function game(userChoice) {
+const computerChoice = getComputerChoice();
+switch (userChoice + computerChoice) {
+    case "rp":
+    case "pr":
+    case "sp":
+        win(userChoice, computerChoice);
+        break;
+    case "rp":
+    case "ps":
+    case "sr":
+        loss(userChoice, computerChoice);
+        break;
+    case "rr":
+    case "pp":
+    case "ss":
+        draw(userChoice, computerChoice);
+        break;
     }
 }
 
-function playRound(playerSelection, computerSelection) {
-     if (playerSelection === "rock" && computerSelection === "scissors") {
-        playerScore += 1;
-        return("You Win! Rock beats Scissors!")
-        
-    } else if (playerSelection === 'paper' && computerSelection === "rock") {
-        playerScore += 1;
-        return("You Wn! Paper beats Rock!")
+function main() {
+    rock_div.addEventListener('click', function() {
+        game('r');
+    })
 
-    } else if (playerSelection === "scissors" && computerSelection === "paper") {
-        playerScore += 1;
-        return("You Win! Scissors beats Paper!")
-    
-    }  else if (playerSelection === computerSelection) {
-        return("It's tie");
+    paper_div.addEventListener('click', function() {
+        game('p');
+    })
 
-    }  else {
-        computerScore += 1;
-        return (`You Loss! ${computerSelection} beats ${playerSelection}`)
-    }
+    scissors_div.addEventListener('click', function() {
+        game('s');
+    })
 }
 
-function winGame() {
-    if (playerScore == 5) {
-        return "You win!"
-    } else if (computerScore == 5) {
-        return "You lose!"
-    }
-}
+main();
 
-game();
-
-console.log(playerScore);
-console.log(computerScore);
