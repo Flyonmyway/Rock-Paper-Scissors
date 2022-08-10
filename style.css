@@ -96,6 +96,13 @@ header > h1 {
     margin: 20px 0px 20px 0px;
 }
 
+.roundCount > p {
+    font-size: 40px;
+    color: white;
+    font-family: sans-serif;
+    font-weight: bold;
+}
+
 .green-glow {
     border: 4px solid #4dcc7d;
     box-shadow: 0 0 10px #31b43a;
