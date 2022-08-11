@@ -11,14 +11,14 @@ body {
 }
 
 header {
-    background: white;
+    background: #FEDB7E;
     padding: 20px;
 }
 
 header > h1 {
-    color: darkkhaki;
+    color: black;
     text-align: center;
-    font-family: sans-serif; 
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif
 }
 
 .score-board {
@@ -29,7 +29,7 @@ header > h1 {
     color: white;
     font-size: 46px;
     padding: 15px 20px;
-    font-family: sans-serif;
+    font-family: 'Oleo Script Swash Caps', cursive; 
     position: relative;
 }
 
@@ -38,7 +38,7 @@ header > h1 {
     color: white;
     font-size: 14px;
     padding: 2px 10px;
-    font-family: sans-serif;
+    font-family: 'Oleo Script Swash Caps', cursive; 
 }
 
 #user-label {
@@ -51,15 +51,16 @@ header > h1 {
     position: absolute;
     top: 30px;
     right: -25px;
-    font-family: sans-serif;
+    font-family: 'Oleo Script Swash Caps', cursive; 
 }
 
 .result > p {
     text-align: center;
     font-size: 40px;
-    color: white;
+    color: #D6C0E0;
+    text-shadow: 2px 2px 0 red;
     font-weight: bold;
-    font-family: sans-serif;
+    font-family: 'Oleo Script Swash Caps', cursive; 
 }
 
 
@@ -70,7 +71,7 @@ header > h1 {
 
 .choice {
     font-size: 50px;
-    border: 4px solid white;
+    border: 4px solid #FCCA7B;
     border-radius: 50%;
     margin: 0 20px;
     padding: 10px 20px;
@@ -79,20 +80,20 @@ header > h1 {
 
 .choice:hover {
     cursor: pointer;
-    background-color: red;
+    background-color: #FCCA7B;
 }
 
 #action-message {
     text-align: center;
-    color: white;
-    font-family: sans-serif;
+    color: #5C5567;
+    font-family: 'Oleo Script Swash Caps', cursive; 
     font-weight: bold;
     font-size: 20px;
 }
 
 .resultAnnounce > p {
     color: black;
-    font-family: sans-serif;
+    font-family: 'Oleo Script Swash Caps', cursive; 
     font-weight: bold;
     font-size: 30px;
     margin: 20px 0px 20px 0px;
@@ -101,7 +102,7 @@ header > h1 {
 .roundCount > p {
     font-size: 40px;
     color: white;
-    font-family: sans-serif;
+    font-family: 'Oleo Script Swash Caps', cursive; 
     font-weight: bold;
 }
 

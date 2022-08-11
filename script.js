@@ -121,3 +121,7 @@ function main() {
 
 main();
 
+$("a").mouseenter(function(){
+    $("#my-sound").play();
+});
+
