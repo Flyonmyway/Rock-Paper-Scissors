@@ -92,6 +92,7 @@ function restartGame() {
     tryAgain_btn.classList.add('tryAgain_btn');
     tryAgain_btn.textContent = "Try again!";
     choices_div.appendChild(tryAgain_btn);
+    tryAgain_btn.setAttribute('style', 'cursor: pointer; border: 2px solid #111; border-radius: 8px; margin-top: 20px; width: 120px; height: 30px; color: #111; background: #fee6e3; align-items: center');
     //reload the page after clicking button 
     tryAgain_btn.addEventListener('click', function(){
         window.location.reload();
@@ -120,6 +121,5 @@ function main() {
 }
 
 main();
-
 
 
